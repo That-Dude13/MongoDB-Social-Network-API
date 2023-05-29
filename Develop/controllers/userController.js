@@ -23,7 +23,7 @@ module.exports = {
             return res.status(500).json(err);
         }
     },
-    // Create user
+    // Create user by id
     async createUser(req, res) {
         try {
             const user = await User.create(req.body);
@@ -63,5 +63,5 @@ module.exports = {
             console.error(err);
             return res.status(500).json(err);
         }
-    }
-}
+    },
+};

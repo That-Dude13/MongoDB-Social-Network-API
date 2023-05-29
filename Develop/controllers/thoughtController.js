@@ -1,5 +1,5 @@
-const {Thought, User} = require('./models');
-const {Reaction} = require('./models');
+const {Thought,Reaction}  = require('./models');
+
 
 module.exports = {
     // Get all thoughts
