@@ -16,7 +16,6 @@ router
 .route('/:UserId')
 .get(getUserById)
 .put(updateUser)
-.post(createUser)
 .delete(deleteUser);
 
 module.exports = router;

@@ -4,7 +4,8 @@ module.exports = {
     // Get all users
     async getUsers(req, res) {
         try {
-            const users = await User.findAll();
+            const users = await User.find();
+            console.log(users);
             return res.json(users);
             
         } catch (err) {
