@@ -15,7 +15,7 @@ module.exports = {
     // Get a single thought
     async getSingleThought(req, res) {
         try {
-            const thought = await Thought.findById(req.params.id);
+            const thought = await Thought.findOne(req.params.id);
             if (!thought) {
                 return res.status(404).json({message: 'No thought found with this id!'});
             }
@@ -60,7 +60,7 @@ module.exports = {
     // Add a reaction to a thought
     async addReaction(req, res) {
         try {
-            const reaction = await Reaction.create(req.body);
+            const reaction = await Reaction.findByIdAndUpdate(req.body);
             res.status(200).json(reaction);
         } catch (err) {
             res.status(500).json(err);

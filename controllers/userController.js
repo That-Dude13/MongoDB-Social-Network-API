@@ -15,7 +15,7 @@ module.exports = {
   // Get user by id
   async getUserById(req, res) {
     try {
-      const user = await User.findByPk(req.params.id);
+      const user = await User.findOne(req.params.id);
       return res.json(user);
     } catch (err) {
       console.error(err);
@@ -48,7 +48,7 @@ module.exports = {
   // Delete user by id
   async deleteUser(req, res) {
     try {
-      const deletedUser = await User.findByIdAndDelete(req.params.id);
+      const deletedUser = await User.findOneAndDelete(req.params.id);
       return res.json(deletedUser);
     } catch (err) {
       console.error(err);
@@ -59,7 +59,7 @@ module.exports = {
   // Add friend to user by id
   async addFriend(req, res) {
     try {
-      const user = await User.findById(req.params.id);
+      const user = await User.findOne(req.params.id);
       user.friends.push(req.body.friendId);
       await user.save();
       return res.json(user);
